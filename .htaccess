@@ -1,0 +1,20 @@
+RewriteEngine On
+
+## we use //$1 class /
+## http://localhost/tarif/ws/general.recipe.json/getRecipe
+# Array
+# (
+#    [fn_class] => recipe
+#    [data_type] => json
+#    [fn_caller] => getRecipe
+# )
+
+
+RewriteRule    ^ws/general.photo/(.*)/?$            general.php?fn_class=recipes&data_type=display&fn_caller=getPhoto&recipe_id=$1      [NC,L]
+RewriteRule    ^ws/general.(.*)\.(.*)/(.*)/?$       general.php?fn_class=$1&data_type=$2&fn_caller=$3                                   [NC,L]
+RewriteRule    ^ws/general.(.*)\.(.*)/?$            general.php?fn_class=$1&data_type=$2                                                [NC,L]
+
+
+RewriteRule    ^v01/general.photo/(.*)/?$           general.php?fn_class=recipes&data_type=display&fn_caller=getPhoto&recipe_id=$1      [NC,L]
+RewriteRule    ^v01/general.(.*)\.(.*)/(.*)/?$      general.php?fn_class=$1&data_type=$2&fn_caller=$3                                   [NC,L]
+RewriteRule    ^v01/general.(.*)\.(.*)/?$           general.php?fn_class=$1&data_type=$2                                                [NC,L]
